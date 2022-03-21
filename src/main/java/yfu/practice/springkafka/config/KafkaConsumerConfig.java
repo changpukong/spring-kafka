@@ -45,7 +45,7 @@ public class KafkaConsumerConfig {
 
 	@Bean
 	public ConsumerFactory<String, TestDto> consumerFactory() {
-//		return new DefaultKafkaConsumerFactory<>(consumerConfigs(), null, new JsonDeserializer<>(TestDto.class));
+//		return new DefaultKafkaConsumerFactory<>(consumerConfigs(), null, new JsonDeserializer<>(TestDto.class));	// 直接指定序列化器
 		return new DefaultKafkaConsumerFactory<>(consumerConfigs());
 	}
 	

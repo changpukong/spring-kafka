@@ -23,9 +23,7 @@ public class TestProducerAsync implements TestProducer {
 	
 	@Override
 	public void produce(TestDto testDto) {
-		for (int i = 0; i < 10; i++) {
-			System.out.println("***i = " + i);
-			
+		for (int i = 0; i < 2; i++) {
 			ListenableFuture<SendResult<String, TestDto>> future = kafkaTemplate.send(topicName, testDto);
 			future.addCallback(new KafkaSendCallback<String, TestDto>() {
 				

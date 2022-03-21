@@ -24,8 +24,6 @@ public class TestProducerSync implements TestProducer {
 	@Override
 	public void produce(TestDto testDto) {
 		for (int i = 0; i < 10; i++) {
-			System.out.println("***i = " + i);
-			
 			try {
 				kafkaTemplate.send(topicName, testDto).get(3, TimeUnit.SECONDS);
 				System.out.println("***成功");
